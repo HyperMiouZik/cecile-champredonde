@@ -21,9 +21,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--paper);
     color: var(--ink);
@@ -33,39 +31,31 @@
     cursor: none;
   }
 
-  /* custom cursor */
   .cursor {
     position: fixed;
-    width: 10px;
-    height: 10px;
+    width: 10px; height: 10px;
     background: var(--blue);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+    transition: width 0.2s ease, height 0.2s ease;
     mix-blend-mode: multiply;
   }
   .cursor-ring {
     position: fixed;
-    width: 36px;
-    height: 36px;
+    width: 36px; height: 36px;
     border: 1.5px solid var(--blue);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;
     transform: translate(-50%, -50%);
-    transition: transform 0.18s ease, width 0.2s ease, height 0.2s ease;
     opacity: 0.6;
   }
-  body:hover .cursor { opacity: 1; }
 
-  /* nav */
   nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 100;
     display: flex;
     justify-content: space-between;
@@ -81,493 +71,285 @@
     color: var(--ink);
     text-decoration: none;
   }
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a {
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink);
-    text-decoration: none;
-    opacity: 0.5;
-    transition: opacity 0.2s;
+    font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    opacity: 0.5; transition: opacity 0.2s;
   }
   .nav-links a:hover { opacity: 1; }
 
-  /* hero */
   #hero {
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0 3rem;
-    padding-top: 7rem;
+    padding: 7rem 3rem 0;
     border-bottom: 1px solid var(--line);
     position: relative;
     overflow: hidden;
   }
   .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding-bottom: 4rem;
-    position: relative;
-    z-index: 2;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; padding-bottom: 4rem;
+    position: relative; z-index: 2;
   }
   .hero-tag {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s forwards;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
   }
   .hero-name {
     font-family: var(--serif);
     font-size: clamp(5rem, 10vw, 9rem);
-    font-weight: 900;
-    line-height: 0.9;
-    letter-spacing: -0.04em;
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: fadeUp 0.9s 0.4s forwards;
+    font-weight: 900; line-height: 0.9;
+    letter-spacing: -0.04em; margin-bottom: 2rem;
+    opacity: 0; animation: fadeUp 0.9s 0.4s forwards;
   }
-  .hero-name em {
-    font-style: italic;
-    color: var(--blue);
-  }
+  .hero-name em { font-style: italic; color: var(--blue); }
   .hero-sub {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--mid);
-    max-width: 380px;
-    line-height: 1.7;
-    opacity: 0;
-    animation: fadeUp 0.9s 0.6s forwards;
+    font-size: 1rem; font-weight: 400;
+    color: var(--mid); max-width: 380px; line-height: 1.7;
+    opacity: 0; animation: fadeUp 0.9s 0.6s forwards;
   }
   .hero-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-bottom: 4rem;
-    gap: 3rem;
-    position: relative;
-    z-index: 2;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; align-items: flex-end;
+    padding-bottom: 4rem; gap: 3rem;
+    position: relative; z-index: 2;
   }
-  .hero-stat {
-    text-align: right;
-    opacity: 0;
-    animation: fadeUp 0.9s 0.8s forwards;
-  }
+  .hero-stat { text-align: right; opacity: 0; animation: fadeUp 0.9s 0.8s forwards; }
   .hero-stat .big {
-    font-family: var(--serif);
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--blue);
+    font-family: var(--serif); font-size: 3.5rem;
+    font-weight: 700; line-height: 1; color: var(--blue);
   }
   .hero-stat .label {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--mid);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-top: 0.3rem;
+    font-size: 0.75rem; font-weight: 400; color: var(--mid);
+    letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.3rem;
   }
   .hero-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.8rem;
-    opacity: 0;
-    animation: fadeUp 0.9s 1s forwards;
+    display: flex; flex-direction: column;
+    align-items: flex-end; gap: 0.8rem;
+    opacity: 0; animation: fadeUp 0.9s 1s forwards;
   }
   .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.9rem 1.8rem;
-    font-family: var(--sans);
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    border-radius: 100px;
-    transition: all 0.25s ease;
-    cursor: none;
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.9rem 1.8rem; font-family: var(--sans);
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em;
+    text-decoration: none; border-radius: 100px;
+    transition: all 0.25s ease; cursor: none;
   }
-  .btn-primary {
-    background: var(--ink);
-    color: var(--paper);
-  }
+  .btn-primary { background: var(--ink); color: var(--paper); }
   .btn-primary:hover { background: var(--blue); transform: translateY(-2px); }
-  .btn-outline {
-    border: 1.5px solid var(--line);
-    color: var(--ink);
-    background: transparent;
-  }
+  .btn-outline { border: 1.5px solid var(--line); color: var(--ink); background: transparent; }
   .btn-outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
-
   .hero-bg-text {
-    position: absolute;
-    bottom: -2rem;
-    left: -1rem;
-    font-family: var(--serif);
-    font-size: 22vw;
-    font-weight: 900;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(121,168,255,0.12);
-    letter-spacing: -0.05em;
-    line-height: 1;
-    pointer-events: none;
-    z-index: 1;
-    white-space: nowrap;
+    position: absolute; bottom: -2rem; left: -1rem;
+    font-family: var(--serif); font-size: 22vw; font-weight: 900;
+    color: transparent; -webkit-text-stroke: 1px rgba(121,168,255,0.12);
+    letter-spacing: -0.05em; line-height: 1;
+    pointer-events: none; z-index: 1; white-space: nowrap;
   }
 
-  /* sections base */
   section { padding: 6rem 3rem; }
   .section-label {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 0.8rem;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 0.8rem;
   }
   .section-title {
     font-family: var(--serif);
     font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    margin-bottom: 3rem;
-  }
-  .divider {
-    width: 100%;
-    height: 1px;
-    background: var(--line);
+    font-weight: 700; line-height: 1.1;
+    letter-spacing: -0.03em; margin-bottom: 3rem;
   }
 
-  /* about */
   #about {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 4rem;
-    align-items: start;
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 4rem; align-items: start;
     border-bottom: 1px solid var(--line);
   }
   .about-left { padding-top: 0.5rem; }
-  .about-right {}
   .about-text {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: var(--ink);
-    font-weight: 300;
-    margin-bottom: 1.5rem;
+    font-size: 1.15rem; line-height: 1.8;
+    color: var(--ink); font-weight: 300; margin-bottom: 1.5rem;
   }
-  .about-text strong {
-    font-weight: 600;
-  }
-  .about-text em {
-    font-style: italic;
-    color: var(--blue);
-    font-family: var(--serif);
-  }
-  .pill-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-top: 2rem;
-  }
+  .about-text strong { font-weight: 600; }
+  .about-text em { font-style: italic; color: var(--blue); font-family: var(--serif); }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
   .pill {
-    padding: 0.4rem 1rem;
-    border: 1.5px solid var(--line);
-    border-radius: 100px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--mid);
-    transition: all 0.2s;
+    padding: 0.4rem 1rem; border: 1.5px solid var(--line);
+    border-radius: 100px; font-size: 0.78rem; font-weight: 500;
+    color: var(--mid); transition: all 0.2s;
   }
   .pill:hover { border-color: var(--blue); color: var(--blue); }
 
-  /* experience */
-  #experience {
-    border-bottom: 1px solid var(--line);
-  }
+  #experience { border-bottom: 1px solid var(--line); }
   .exp-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 4rem;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; margin-bottom: 4rem;
   }
   .exp-card {
-    border-top: 2px solid var(--ink);
-    padding-top: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 0;
-    opacity: 0;
-    transform: translateY(30px);
+    border-top: 2px solid var(--ink); padding-top: 2rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    opacity: 0; transform: translateY(30px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
   .exp-card.visible { opacity: 1; transform: translateY(0); }
-  .exp-card-main {}
   .exp-role {
-    font-family: var(--serif);
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.3rem;
+    font-family: var(--serif); font-size: 1.6rem;
+    font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.3rem;
   }
-  .exp-company {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--blue);
-    margin-bottom: 0.2rem;
-  }
-  .exp-period {
-    font-size: 0.78rem;
-    color: var(--mid);
-    letter-spacing: 0.04em;
-    margin-bottom: 1.5rem;
-  }
-  .exp-desc {
-    font-size: 0.9rem;
-    line-height: 1.75;
-    color: #444;
-  }
-  .exp-card-side { }
-  .exp-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    padding-top: 0.3rem;
-  }
+  .exp-company { font-size: 0.9rem; font-weight: 600; color: var(--blue); margin-bottom: 0.2rem; }
+  .exp-period { font-size: 0.78rem; color: var(--mid); letter-spacing: 0.04em; margin-bottom: 1.5rem; }
+  .exp-desc { font-size: 0.9rem; line-height: 1.75; color: #444; }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; padding-top: 0.3rem; }
   .exp-bullets li {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: var(--mid);
-    padding-left: 1.2rem;
-    position: relative;
+    font-size: 0.85rem; line-height: 1.6; color: var(--mid);
+    padding-left: 1.2rem; position: relative;
   }
   .exp-bullets li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--blue);
-    font-size: 0.75rem;
-    top: 0.05em;
+    content: '→'; position: absolute; left: 0;
+    color: var(--blue); font-size: 0.75rem; top: 0.05em;
   }
-  .exp-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 1.5rem;
-  }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem; }
   .exp-tag {
-    padding: 0.25rem 0.7rem;
-    background: var(--blue-dim);
-    color: var(--blue);
-    border-radius: 4px;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    padding: 0.25rem 0.7rem; background: var(--blue-dim);
+    color: var(--blue); border-radius: 4px;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.04em;
   }
-  .exp-divider {
-    height: 1px;
-    background: var(--line);
-    margin: 3.5rem 0;
-  }
+  .exp-divider { height: 1px; background: var(--line); margin: 3.5rem 0; }
 
-  /* skills */
-  #skills {
+  /* showcase carousel */
+  #showcase {
+    padding: 5rem 3rem;
     border-bottom: 1px solid var(--line);
+    overflow: hidden;
   }
+  .showcase-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-end; margin-bottom: 2.5rem;
+  }
+  .showcase-track-wrapper {
+    overflow-x: auto; scrollbar-width: none;
+    cursor: grab; margin: 0 -3rem; padding: 0 3rem;
+  }
+  .showcase-track-wrapper::-webkit-scrollbar { display: none; }
+  .showcase-track-wrapper.grabbing { cursor: grabbing; }
+  .showcase-track { display: flex; gap: 1.2rem; width: max-content; padding-bottom: 1rem; }
+  .showcase-item {
+    position: relative; width: 480px; height: 270px;
+    border-radius: 8px; overflow: hidden; flex-shrink: 0;
+    border: 1px solid var(--line); background: #e8e7e3;
+  }
+  .showcase-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    object-position: top; display: block; transition: transform 0.4s ease;
+  }
+  .showcase-item:hover img { transform: scale(1.03); }
+  .showcase-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 1.2rem 1.4rem 1rem;
+    background: linear-gradient(to top, rgba(15,15,15,0.75) 0%, transparent 100%);
+    display: flex; flex-direction: column; gap: 0.2rem;
+    opacity: 0; transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .showcase-item:hover .showcase-overlay { opacity: 1; transform: translateY(0); }
+  .showcase-name { color: #fff; font-size: 0.95rem; font-weight: 600; }
+  .showcase-type { color: rgba(255,255,255,0.65); font-size: 0.75rem; letter-spacing: 0.04em; }
+
+  #skills { border-bottom: 1px solid var(--line); }
   .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
-    margin-top: 3rem;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--line);
+    border: 1px solid var(--line); margin-top: 3rem;
   }
   .skill-block {
-    background: var(--paper);
-    padding: 2rem 1.8rem;
-    transition: background 0.2s;
-    opacity: 0;
-    transform: translateY(20px);
+    background: var(--paper); padding: 2rem 1.8rem;
+    opacity: 0; transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s;
   }
   .skill-block.visible { opacity: 1; transform: translateY(0); }
   .skill-block:hover { background: var(--blue-dim); }
   .skill-block-title {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 1.2rem;
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 1.2rem;
   }
-  .skill-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-  }
-  .skill-list li {
-    font-size: 0.88rem;
-    font-weight: 400;
-    color: var(--ink);
-  }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .skill-list li { font-size: 0.88rem; font-weight: 400; color: var(--ink); }
 
-  /* education */
   #education {
     border-bottom: 1px solid var(--line);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
   }
   .edu-entry {
-    border-top: 2px solid var(--ink);
-    padding-top: 1.5rem;
-    opacity: 0;
-    transform: translateY(20px);
+    border-top: 2px solid var(--ink); padding-top: 1.5rem;
+    opacity: 0; transform: translateY(20px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
   .edu-entry.visible { opacity: 1; transform: translateY(0); }
-  .edu-degree {
-    font-family: var(--serif);
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.3rem;
-    line-height: 1.2;
-  }
-  .edu-school {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--blue);
-    margin-bottom: 0.15rem;
-  }
-  .edu-year {
-    font-size: 0.78rem;
-    color: var(--mid);
-    margin-bottom: 1rem;
-  }
-  .edu-note {
-    font-size: 0.85rem;
-    color: #555;
-    line-height: 1.65;
-  }
+  .edu-degree { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.3rem; line-height: 1.2; }
+  .edu-school { font-size: 0.9rem; font-weight: 600; color: var(--blue); margin-bottom: 0.15rem; }
+  .edu-year { font-size: 0.78rem; color: var(--mid); margin-bottom: 1rem; }
+  .edu-note { font-size: 0.85rem; color: #555; line-height: 1.65; }
   .edu-badge {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.3rem 0.9rem;
-    background: var(--ink);
-    color: var(--paper);
-    border-radius: 100px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    display: inline-block; margin-top: 1rem; padding: 0.3rem 0.9rem;
+    background: var(--ink); color: var(--paper); border-radius: 100px;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
   }
 
-  /* contact */
   #contact {
-    text-align: center;
-    padding: 8rem 3rem;
-    position: relative;
-    overflow: hidden;
+    text-align: center; padding: 8rem 3rem;
+    position: relative; overflow: hidden;
   }
   #contact .bg-word {
-    position: absolute;
-    bottom: -3rem;
-    left: 50%;
+    position: absolute; bottom: -3rem; left: 50%;
     transform: translateX(-50%);
-    font-family: var(--serif);
-    font-size: 20vw;
-    font-weight: 900;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(121,168,255,0.1);
-    pointer-events: none;
-    white-space: nowrap;
+    font-family: var(--serif); font-size: 20vw; font-weight: 900;
+    color: transparent; -webkit-text-stroke: 1px rgba(121,168,255,0.1);
+    pointer-events: none; white-space: nowrap;
   }
   .contact-title {
-    font-family: var(--serif);
-    font-size: clamp(2.5rem, 5vw, 5rem);
-    font-weight: 900;
-    letter-spacing: -0.04em;
-    line-height: 1;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 2;
+    font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 900; letter-spacing: -0.04em; line-height: 1;
+    margin-bottom: 1.5rem; position: relative; z-index: 2;
   }
-  .contact-title em {
-    font-style: italic;
-    color: var(--blue);
-  }
-  .contact-sub {
-    font-size: 1rem;
-    color: var(--mid);
-    margin-bottom: 3rem;
-    position: relative;
-    z-index: 2;
-  }
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 2;
-  }
+  .contact-title em { font-style: italic; color: var(--blue); }
+  .contact-sub { font-size: 1rem; color: var(--mid); margin-bottom: 3rem; position: relative; z-index: 2; }
+  .contact-links { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; position: relative; z-index: 2; }
 
-  /* footer */
   footer {
-    padding: 2rem 3rem;
-    border-top: 1px solid var(--line);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.75rem;
-    color: var(--mid);
+    padding: 2rem 3rem; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between;
+    align-items: center; font-size: 0.75rem; color: var(--mid);
   }
 
-  /* animations */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
   .reveal {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 0; transform: translateY(30px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* responsive */
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; }
     .nav-links { display: none; }
     #hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
     .hero-right { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
-    section { padding: 4rem 1.5rem; }
+    section, #showcase { padding: 4rem 1.5rem; }
     #about, #education { grid-template-columns: 1fr; gap: 2rem; }
     .exp-header { grid-template-columns: 1fr; gap: 1rem; }
     .exp-card { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
+    .showcase-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .showcase-item { width: 320px; height: 180px; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
@@ -577,18 +359,17 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- nav -->
 <nav>
   <a class="nav-logo" href="#">C. —</a>
   <ul class="nav-links">
     <li><a href="#about">Profil</a></li>
     <li><a href="#experience">Expérience</a></li>
+    <li><a href="#showcase">Réalisations</a></li>
     <li><a href="#skills">Compétences</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- hero -->
 <section id="hero">
   <div class="hero-left">
     <p class="hero-tag">Cheffe de projet digital · Essonne</p>
@@ -612,7 +393,6 @@
   <div class="hero-bg-text">CÉCILE</div>
 </section>
 
-<!-- about -->
 <section id="about">
   <div class="about-left">
     <p class="section-label">à propos</p>
@@ -640,13 +420,12 @@
   </div>
 </section>
 
-<!-- experience -->
 <section id="experience">
   <p class="section-label reveal">expérience</p>
   <div class="exp-header">
     <h2 class="section-title reveal">3 ans de terrain.<br>Vraiment.</h2>
     <p class="reveal" style="font-size:1rem;color:var(--mid);line-height:1.8;padding-top:0.5rem;">
-      Pas de stage de 6 mois dans un corner d'open space. Trois ans d'alternance full-immersion avec des grands comptes. C'est dans ce contexte que j'ai vraiment appris le métier.
+      Trois ans en alternance dans une agence e-commerce, sur un portefeuille de 80+ boutiques pour des grands comptes industriels. C'est dans ce contexte que j'ai vraiment appris le métier.
     </p>
   </div>
 
@@ -655,9 +434,7 @@
       <div class="exp-role">Cheffe de projet digital</div>
       <div class="exp-company">Synneo, agence objet média · Lieusaint</div>
       <div class="exp-period">Août 2023 – Aujourd'hui · Alternance</div>
-      <p class="exp-desc">
-        Gestion d'un portefeuille de 80+ boutiques e-commerce B2B/B2C pour des grands comptes industriels et corporate. Interface entre équipes commerciales, techniques et clients. Implication directe dans les phases de pre-sales et les réponses à appels d'offres.
-      </p>
+      <p class="exp-desc">Gestion d'un portefeuille de 80+ boutiques e-commerce B2B/B2C pour des grands comptes industriels et corporate. Interface entre équipes commerciales, techniques et clients. Implication directe dans les phases de pre-sales et les réponses à appels d'offres.</p>
       <div class="exp-tags">
         <span class="exp-tag">Safran</span>
         <span class="exp-tag">Airbus</span>
@@ -691,9 +468,7 @@
       <div class="exp-role">Assistante Webmarketing</div>
       <div class="exp-company">Synneo, agence objet média · Lieusaint</div>
       <div class="exp-period">Avril 2023 – Juin 2023 · Stage</div>
-      <p class="exp-desc">
-        Premier pied dans l'agence — stage qui a directement débouché sur l'alternance. Contribution opérationnelle sur la création de boutiques PrestaShop, la stratégie SEO et la production de contenus digitaux.
-      </p>
+      <p class="exp-desc">Premier pied dans l'agence — stage qui a directement débouché sur l'alternance. Contribution opérationnelle sur la création de boutiques PrestaShop, la stratégie SEO et la production de contenus digitaux.</p>
     </div>
     <div class="exp-card-side">
       <ul class="exp-bullets">
@@ -712,9 +487,7 @@
       <div class="exp-role">Community Manager</div>
       <div class="exp-company">VM Coaching · Combs-la-Ville</div>
       <div class="exp-period">Avril 2022 – Juin 2022 · Stage</div>
-      <p class="exp-desc">
-        Mission de refonte de la présence digitale d'une structure de coaching. Prise en main complète de la stratégie éditoriale et de l'animation des communautés en autonomie.
-      </p>
+      <p class="exp-desc">Mission de refonte de la présence digitale d'une structure de coaching. Prise en main complète de la stratégie éditoriale et de l'animation des communautés en autonomie.</p>
     </div>
     <div class="exp-card-side">
       <ul class="exp-bullets">
@@ -727,78 +500,110 @@
   </div>
 </section>
 
-<!-- skills -->
-<section id="skills">
-  <p class="section-label reveal">compétences & outils</p>
-  <h2 class="section-title reveal">Le stack<br>derrière le profil.</h2>
-
-  <div class="skills-grid">
-    <div class="skill-block">
-      <div class="skill-block-title">Plateformes & CMS</div>
-      <ul class="skill-list">
-        <li>PrestaShop</li>
-        <li>WordPress</li>
-      </ul>
+<section id="showcase">
+  <div class="showcase-header">
+    <div>
+      <p class="section-label reveal">réalisations</p>
+      <h2 class="section-title reveal" style="margin-bottom:0;">Quelques boutiques<br>du portefeuille.</h2>
     </div>
-    <div class="skill-block">
-      <div class="skill-block-title">Data & Analyse</div>
-      <ul class="skill-list">
-        <li>GA4</li>
-        <li>Looker Studio</li>
-        <li>Excel / Sheets</li>
-      </ul>
-    </div>
-    <div class="skill-block">
-      <div class="skill-block-title">CRM & Marketing</div>
-      <ul class="skill-list">
-        <li>Brevo</li>
-        <li>HubSpot</li>
-      </ul>
-    </div>
-    <div class="skill-block">
-      <div class="skill-block-title">Projet & Design</div>
-      <ul class="skill-list">
-        <li>Adobe Creative Suite</li>
-        <li>Figma</li>
-        <li>Jira</li>
-      </ul>
-    </div>
-    <div class="skill-block">
-      <div class="skill-block-title">Technique</div>
-      <ul class="skill-list">
-        <li>HTML / CSS</li>
-        <li>Intégrations API</li>
-        <li>No-code / Webflow</li>
-      </ul>
-    </div>
-    <div class="skill-block">
-      <div class="skill-block-title">Langues</div>
-      <ul class="skill-list">
-        <li>Français — natif</li>
-        <li>Anglais — C1 — TOEIC 980/990</li>
-        <li>Espagnol — notions</li>
-      </ul>
-    </div>
-    <div class="skill-block">
-      <div class="skill-block-title">Savoir-faire clés</div>
-      <ul class="skill-list">
-        <li>Relation grands comptes</li>
-        <li>Réponse aux appels d'offres</li>
-        <li>Pre-sales & démonstrations</li>
-      </ul>
-    </div>
-    <div class="skill-block">
-      <div class="skill-block-title">Secteurs connus</div>
-      <ul class="skill-list">
-        <li>Industrie / Défense</li>
-        <li>Énergie</li>
-        <li>Jeu vidéo / Divertissement</li>
-      </ul>
+    <p class="reveal" style="font-size:0.85rem;color:var(--mid);max-width:280px;text-align:right;line-height:1.7;">
+      Boutiques e-commerce B2B/B2C déployées et gérées chez Synneo — grands comptes et marques diverses.
+    </p>
+  </div>
+  <div class="showcase-track-wrapper">
+    <div class="showcase-track">
+      <div class="showcase-item">
+        <img src="images/airbus.png" alt="Let's Shop Airbus" loading="lazy">
+        <div class="showcase-overlay">
+          <span class="showcase-name">Let's Shop Airbus</span>
+          <span class="showcase-type">Boutique corporate · B2B</span>
+        </div>
+      </div>
+      <div class="showcase-item">
+        <img src="images/M6.png" alt="M6 Shop" loading="lazy">
+        <div class="showcase-overlay">
+          <span class="showcase-name">M6 Shop</span>
+          <span class="showcase-type">Boutique media · B2C</span>
+        </div>
+      </div>
+      <div class="showcase-item">
+        <img src="images/kubota.png" alt="Kubota Shop" loading="lazy">
+        <div class="showcase-overlay">
+          <span class="showcase-name">Kubota Shop</span>
+          <span class="showcase-type">Boutique corporate · B2B/B2C</span>
+        </div>
+      </div>
+      <div class="showcase-item">
+        <img src="images/ligue.png" alt="Ligue contre le Cancer" loading="lazy">
+        <div class="showcase-overlay">
+          <span class="showcase-name">Ligue contre le Cancer</span>
+          <span class="showcase-type">Boutique solidaire · B2C</span>
+        </div>
+      </div>
+      <div class="showcase-item">
+        <img src="images/cnes.png" alt="Ma Boutique CNES" loading="lazy">
+        <div class="showcase-overlay">
+          <span class="showcase-name">Ma Boutique CNES</span>
+          <span class="showcase-type">Boutique institutionnelle · B2C</span>
+        </div>
+      </div>
+      <div class="showcase-item">
+        <img src="images/onair.png" alt="On Air Original Fitness" loading="lazy">
+        <div class="showcase-overlay">
+          <span class="showcase-name">On Air Original Fitness</span>
+          <span class="showcase-type">Boutique retail · B2C</span>
+        </div>
+      </div>
+      <div class="showcase-item">
+        <img src="images/flower.png" alt="Flower Campings" loading="lazy">
+        <div class="showcase-overlay">
+          <span class="showcase-name">Flower Campings</span>
+          <span class="showcase-type">Boutique corporate · B2B</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- education -->
+<section id="skills">
+  <p class="section-label reveal">compétences & outils</p>
+  <h2 class="section-title reveal">Le stack<br>derrière le profil.</h2>
+  <div class="skills-grid">
+    <div class="skill-block">
+      <div class="skill-block-title">Plateformes & CMS</div>
+      <ul class="skill-list"><li>PrestaShop</li><li>WordPress</li></ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Data & Analyse</div>
+      <ul class="skill-list"><li>GA4</li><li>Looker Studio</li><li>Excel / Sheets</li></ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">CRM & Marketing</div>
+      <ul class="skill-list"><li>Brevo</li><li>HubSpot</li></ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Projet & Design</div>
+      <ul class="skill-list"><li>Adobe Creative Suite</li><li>Figma</li><li>Jira</li></ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Technique</div>
+      <ul class="skill-list"><li>HTML / CSS</li><li>Intégrations API</li><li>No-code / Webflow</li></ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Langues</div>
+      <ul class="skill-list"><li>Français — natif</li><li>Anglais — C1 — TOEIC 980/990</li><li>Espagnol — notions</li></ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Savoir-faire clés</div>
+      <ul class="skill-list"><li>Relation grands comptes</li><li>Réponse aux appels d'offres</li><li>Pre-sales & démonstrations</li></ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Secteurs connus</div>
+      <ul class="skill-list"><li>Industrie / Défense</li><li>Énergie</li><li>Jeu vidéo / Divertissement</li></ul>
+    </div>
+  </div>
+</section>
+
 <section id="education">
   <div>
     <p class="section-label reveal">formation</p>
@@ -821,14 +626,13 @@
   </div>
 </section>
 
-<!-- contact -->
 <section id="contact">
   <div class="bg-word">HELLO</div>
   <p class="section-label reveal">contact</p>
   <h2 class="contact-title reveal">On travaille<br><em>ensemble ?</em></h2>
   <p class="contact-sub reveal">Disponible pour un CDI à Paris dès octobre 2026.</p>
   <div class="contact-links reveal">
-    <a class="btn btn-primary" href="champredonde.c@hotmail.fr">champredonde.c@hotmail.fr</a>
+    <a class="btn btn-primary" href="mailto:champredonde.c@hotmail.fr">champredonde.c@hotmail.fr</a>
     <a class="btn btn-outline" href="https://www.linkedin.com/in/cchampredonde/" target="_blank">LinkedIn →</a>
     <a class="btn btn-outline" href="#">CV PDF →</a>
   </div>
@@ -840,7 +644,6 @@
 </footer>
 
 <script>
-  // custom cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
@@ -859,39 +662,46 @@
   animateRing();
   document.querySelectorAll('a, button').forEach(el => {
     el.addEventListener('mouseenter', () => {
-      cursor.style.width = '18px';
-      cursor.style.height = '18px';
-      ring.style.width = '52px';
-      ring.style.height = '52px';
+      cursor.style.width = '18px'; cursor.style.height = '18px';
+      ring.style.width = '52px'; ring.style.height = '52px';
     });
     el.addEventListener('mouseleave', () => {
-      cursor.style.width = '10px';
-      cursor.style.height = '10px';
-      ring.style.width = '36px';
-      ring.style.height = '36px';
+      cursor.style.width = '10px'; cursor.style.height = '10px';
+      ring.style.width = '36px'; ring.style.height = '36px';
     });
   });
 
-  // scroll reveals
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, 80);
+        setTimeout(() => entry.target.classList.add('visible'), 80);
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .exp-card, .skill-block, .edu-entry').forEach(el => observer.observe(el));
 
-  document.querySelectorAll('.reveal, .exp-card, .skill-block, .edu-entry').forEach(el => {
-    observer.observe(el);
-  });
-
-  // stagger skill blocks
   document.querySelectorAll('.skill-block').forEach((el, i) => {
     el.style.transitionDelay = (i * 60) + 'ms';
   });
+
+  // drag-to-scroll showcase
+  const wrapper = document.querySelector('.showcase-track-wrapper');
+  if (wrapper) {
+    let isDown = false, startX, scrollLeft;
+    wrapper.addEventListener('mousedown', e => {
+      isDown = true; wrapper.classList.add('grabbing');
+      startX = e.pageX - wrapper.offsetLeft;
+      scrollLeft = wrapper.scrollLeft;
+    });
+    wrapper.addEventListener('mouseleave', () => { isDown = false; wrapper.classList.remove('grabbing'); });
+    wrapper.addEventListener('mouseup', () => { isDown = false; wrapper.classList.remove('grabbing'); });
+    wrapper.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      wrapper.scrollLeft = scrollLeft - (e.pageX - wrapper.offsetLeft - startX) * 1.5;
+    });
+  }
 </script>
 </body>
 </html>
