@@ -260,6 +260,43 @@
   .showcase-name { color: #fff; font-size: 0.95rem; font-weight: 600; }
   .showcase-type { color: rgba(255,255,255,0.65); font-size: 0.75rem; letter-spacing: 0.04em; }
 
+  /* projects */
+  #projects { border-bottom: 1px solid var(--line); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .project-card {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+  .project-banner { padding: 1.8rem 1.8rem 1.4rem; min-height: 90px; display: flex; align-items: flex-end; }
+  .project-banner-inner { display: flex; justify-content: space-between; align-items: flex-end; width: 100%; }
+  .project-logo { line-height: 1; }
+  .project-badge {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.3rem 0.8rem;
+    border: 1.5px solid rgba(0,0,0,0.15); border-radius: 100px;
+    color: var(--mid); white-space: nowrap;
+  }
+  .project-body { padding: 1.6rem 1.8rem 1.8rem; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+  .project-meta { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .project-year { font-size: 0.75rem; color: var(--mid); font-weight: 500; }
+  .project-school { font-size: 0.72rem; color: var(--blue); font-weight: 600; letter-spacing: 0.04em; }
+  .project-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; color: var(--ink); }
+  .project-desc { font-size: 0.86rem; line-height: 1.75; color: #555; flex: 1; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .project-tag { padding: 0.25rem 0.7rem; background: var(--blue-dim); color: var(--blue); border-radius: 4px; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.04em; }
+  .project-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.5rem; }
+  .project-links .btn { font-size: 0.78rem; padding: 0.7rem 1.3rem; }
+
   #skills { border-bottom: 1px solid var(--line); }
   .skills-grid {
     display: grid; grid-template-columns: repeat(4, 1fr);
@@ -350,6 +387,7 @@
     .skills-grid { grid-template-columns: 1fr 1fr; }
     .showcase-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .showcase-item { width: 320px; height: 180px; }
+    .projects-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
@@ -365,6 +403,7 @@
     <li><a href="#about">Profil</a></li>
     <li><a href="#experience">Expérience</a></li>
     <li><a href="#showcase">Réalisations</a></li>
+    <li><a href="#projects">Projets</a></li>
     <li><a href="#skills">Compétences</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -565,6 +604,108 @@
   </div>
 </section>
 
+<!-- ============================================================ -->
+<!-- PROJETS ACADÉMIQUES                                          -->
+<!-- ============================================================ -->
+<section id="projects">
+  <p class="section-label reveal">projets académiques</p>
+  <h2 class="section-title reveal">Quelques projets<br>qui comptent.</h2>
+
+  <div class="projects-grid">
+
+    <!-- Leroy Merlin -->
+    <div class="project-card reveal">
+      <div class="project-banner" style="background:#e8f5e9;">
+        <div class="project-banner-inner">
+          <span class="project-logo" style="color:#2e7d32;font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;">LEROY MERLIN</span>
+          <span class="project-badge">Intervention réelle</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-year">2022 – 2023</span>
+          <span class="project-school">Bachelor · My Digital School</span>
+        </div>
+        <h3 class="project-title">Audit & stratégie de communication digitale</h3>
+        <p class="project-desc">
+          Audit complet de la présence digitale du magasin Leroy Merlin Cesson-Melun — réseaux sociaux, benchmark concurrentiel, personas B2B/B2C. Livrables : axes d'amélioration actionnables (TikTok, live shopping, encart PRO), planning éditorial multicanal, et création de toutes pièces de la marque <strong>BricoLab</strong> — logo, charte graphique et intranet dédié.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Audit digital</span>
+          <span class="project-tag">Stratégie com</span>
+          <span class="project-tag">Social media</span>
+          <span class="project-tag">Identité visuelle</span>
+          <span class="project-tag">Intranet</span>
+        </div>
+        <div class="project-links">
+          <a class="btn btn-outline" href="https://canva.link/t4v1p8ftd6237zs" target="_blank">Voir la présentation →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Orange -->
+    <div class="project-card reveal">
+      <div class="project-banner" style="background:#fff3e0;">
+        <div class="project-banner-inner">
+          <span class="project-logo" style="color:#e65100;font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;">ORANGE</span>
+          <span class="project-badge" style="background:var(--ink);color:var(--paper);border-color:var(--ink);">🏆 1er groupe</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-year">2025 – 2026</span>
+          <span class="project-school">Master · IMT Business School</span>
+        </div>
+        <h3 class="project-title">Conseiller IA pour boutique.orange.fr</h3>
+        <p class="project-desc">
+          Challenge inter-groupes remporté en 1ère place. Brief : réduire les 69% d'abandon dans le parcours de souscription de boutique.orange.fr. Solution : concevoir un conseiller digital IA personnalisé remplaçant le catalogue statique — prototype chatbot fonctionnel et pitch stratégique couvrant conversion, CLV et données first-party.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">IA générative</span>
+          <span class="project-tag">UX conversationnel</span>
+          <span class="project-tag">Stratégie digitale</span>
+          <span class="project-tag">Prototype chatbot</span>
+        </div>
+        <div class="project-links">
+          <a class="btn btn-outline" href="https://canva.link/tbl3befwtt33ord" target="_blank">Voir la présentation →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trip'n'Sip -->
+    <div class="project-card reveal">
+      <div class="project-banner" style="background:#f3e5f5;">
+        <div class="project-banner-inner">
+          <span class="project-logo" style="color:#6a1b9a;font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;">TRIP'N'SIP</span>
+          <span class="project-badge" style="border-color:rgba(106,27,154,0.3);color:#6a1b9a;">Projet de validation</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-year">2023 – 2024</span>
+          <span class="project-school">Bachelor · My Digital School</span>
+        </div>
+        <h3 class="project-title">App de rencontre pour globe-trotters</h3>
+        <p class="project-desc">
+          Conception complète d'une application mobile de A à Z : étude de marché, benchmark de 14 concurrents, PESTEL, SWOT, personas, cahier des charges, Gantt, budget chiffré, identité visuelle, stratégie webmarketing et social media — et prototype Figma fonctionnel livré.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Gestion de projet</span>
+          <span class="project-tag">UX/UI Figma</span>
+          <span class="project-tag">Étude de marché</span>
+          <span class="project-tag">Stratégie marketing</span>
+          <span class="project-tag">Identité visuelle</span>
+        </div>
+        <div class="project-links">
+          <a class="btn btn-primary" href="https://www.figma.com/proto/5XnBoHOqBXZOmcoxehLjUI?node-id=0-1&t=PVYEBbftgkxJTyzk-6" target="_blank">Voir le prototype →</a>
+          <a class="btn btn-outline" href="https://canva.link/rjydl4xrhhk1tgt" target="_blank">Voir la présentation →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section id="skills">
   <p class="section-label reveal">compétences & outils</p>
   <h2 class="section-title reveal">Le stack<br>derrière le profil.</h2>
@@ -630,7 +771,7 @@
   <div class="bg-word">HELLO</div>
   <p class="section-label reveal">contact</p>
   <h2 class="contact-title reveal">On travaille<br><em>ensemble ?</em></h2>
-  <p class="contact-sub reveal">Disponible pour un nouvelle opportunité, en Île-de-France dès octobre 2026.</p>
+  <p class="contact-sub reveal">Disponible pour une nouvelle opportunité, en Île-de-France dès octobre 2026.</p>
   <div class="contact-links reveal">
     <a class="btn btn-primary" href="mailto:champredonde.c@hotmail.fr">champredonde.c@hotmail.fr</a>
     <a class="btn btn-outline" href="https://www.linkedin.com/in/cchampredonde/" target="_blank">LinkedIn →</a>
@@ -689,11 +830,8 @@
   const wrapper = document.querySelector('.showcase-track-wrapper');
   if (wrapper) {
     let isDown = false, startX, scrollLeft, moved = false;
-
-    // souris
     wrapper.addEventListener('mousedown', e => {
-      isDown = true;
-      moved = false;
+      isDown = true; moved = false;
       wrapper.classList.add('grabbing');
       startX = e.clientX;
       scrollLeft = wrapper.scrollLeft;
@@ -709,8 +847,6 @@
       if (Math.abs(dx) > 3) moved = true;
       wrapper.scrollLeft = scrollLeft - dx;
     });
-
-    // tactile mobile
     let touchStartX = 0, touchScrollLeft = 0;
     wrapper.addEventListener('touchstart', e => {
       touchStartX = e.touches[0].clientX;
