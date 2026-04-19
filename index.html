@@ -387,7 +387,7 @@
     </div>
     <div class="hero-cta">
       <a class="btn btn-primary" href="mailto:champredonde.c@hotmail.fr">Me contacter →</a>
-      <a class="btn btn-outline" href="/images/CV_CécileChampredonde_blue.pdf">Télécharger mon CV</a>
+      <a class="btn btn-outline" href="#">Télécharger mon CV</a>
     </div>
   </div>
   <div class="hero-bg-text">CÉCILE</div>
@@ -400,7 +400,7 @@
   </div>
   <div class="about-right">
     <p class="about-text reveal">
-      Je suis étudiante en dernière année du <strong>Programme Grande École de l'Institut Mines-Télécom Business School</strong>, spécialisée en ingénierie d'affaires internationales, je serai diplômée en septembre 2026.
+      Je suis étudiante en dernière année du <strong>Programme Grande École de l'Institut Mines-Télécom Business School</strong>, spécialisée en ingénierie d'affaires internationales — diplôme prévu en septembre 2026.
     </p>
     <p class="about-text reveal">
       Trois ans en alternance chez Synneo m'ont permis de gérer <em>un portefeuille de plus de 80 boutiques e-commerce B2B/B2C</em> pour des grands comptes de premier plan. J'ai appris à parler business avec des directeurs commerciaux, technique avec des développeurs, et stratégie avec des clients exigeants.
@@ -507,7 +507,7 @@
       <h2 class="section-title reveal" style="margin-bottom:0;">Quelques boutiques<br>du portefeuille.</h2>
     </div>
     <p class="reveal" style="font-size:0.85rem;color:var(--mid);max-width:280px;text-align:right;line-height:1.7;">
-      Boutiques e-commerce B2B/B2C déployées et gérées chez Synneo — grands comptes et marques diverses.
+      Boutiques e-commerce B2B/B2C déployées et gérées chez Synneo, grands comptes et marques diverses.
     </p>
   </div>
   <div class="showcase-track-wrapper">
@@ -634,7 +634,7 @@
   <div class="contact-links reveal">
     <a class="btn btn-primary" href="mailto:champredonde.c@hotmail.fr">champredonde.c@hotmail.fr</a>
     <a class="btn btn-outline" href="https://www.linkedin.com/in/cchampredonde/" target="_blank">LinkedIn →</a>
-    <a class="btn btn-outline" href="/images/CV_CécileChampredonde_blue.pdf">CV PDF →</a>
+    <a class="btn btn-outline" href="#">CV PDF →</a>
   </div>
 </section>
 
@@ -685,22 +685,41 @@
     el.style.transitionDelay = (i * 60) + 'ms';
   });
 
-  // drag-to-scroll showcase
+  // drag-to-scroll showcase — souris + tactile
   const wrapper = document.querySelector('.showcase-track-wrapper');
   if (wrapper) {
-    let isDown = false, startX, scrollLeft;
+    let isDown = false, startX, scrollLeft, moved = false;
+
+    // souris
     wrapper.addEventListener('mousedown', e => {
-      isDown = true; wrapper.classList.add('grabbing');
-      startX = e.pageX - wrapper.offsetLeft;
+      isDown = true;
+      moved = false;
+      wrapper.classList.add('grabbing');
+      startX = e.clientX;
       scrollLeft = wrapper.scrollLeft;
-    });
-    wrapper.addEventListener('mouseleave', () => { isDown = false; wrapper.classList.remove('grabbing'); });
-    wrapper.addEventListener('mouseup', () => { isDown = false; wrapper.classList.remove('grabbing'); });
-    wrapper.addEventListener('mousemove', e => {
-      if (!isDown) return;
       e.preventDefault();
-      wrapper.scrollLeft = scrollLeft - (e.pageX - wrapper.offsetLeft - startX) * 1.5;
     });
+    window.addEventListener('mouseup', () => {
+      isDown = false;
+      wrapper.classList.remove('grabbing');
+    });
+    window.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 3) moved = true;
+      wrapper.scrollLeft = scrollLeft - dx;
+    });
+
+    // tactile mobile
+    let touchStartX = 0, touchScrollLeft = 0;
+    wrapper.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      touchScrollLeft = wrapper.scrollLeft;
+    }, { passive: true });
+    wrapper.addEventListener('touchmove', e => {
+      const dx = e.touches[0].clientX - touchStartX;
+      wrapper.scrollLeft = touchScrollLeft - dx;
+    }, { passive: true });
   }
 </script>
 </body>
